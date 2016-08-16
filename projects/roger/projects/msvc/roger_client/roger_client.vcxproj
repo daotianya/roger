@@ -92,7 +92,7 @@
     <ClInclude Include="..\..\..\src\roger\SuperCargo.hpp" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\..\libs\wawo\svn\wawo\projects\msvc\wawo.2015.vcxproj">
+    <ProjectReference Include="..\..\..\..\..\libs\wawo\projects\msvc\wawo.2015.vcxproj">
       <Project>{cdce0809-6c77-480b-8912-09c043b9c268}</Project>
     </ProjectReference>
   </ItemGroup>

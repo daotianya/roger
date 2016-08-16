@@ -8,7 +8,7 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "roger", "roger_client.vcxpr
 		{CDCE0809-6C77-480B-8912-09C043B9C268} = {CDCE0809-6C77-480B-8912-09C043B9C268}
 	EndProjectSection
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "wawo.2015", "..\..\..\..\..\libs\wawo\svn\wawo\projects\msvc\wawo.2015.vcxproj", "{CDCE0809-6C77-480B-8912-09C043B9C268}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "wawo.2015", "..\..\..\..\..\libs\wawo\projects\msvc\wawo.2015.vcxproj", "{CDCE0809-6C77-480B-8912-09C043B9C268}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
