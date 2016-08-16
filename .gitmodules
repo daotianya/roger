@@ -1,4 +1,0 @@
-[submodule "wawo"]
-	path = wawo
-	url = git@github.com:ycopy/wawo.git
-	branch = for_roger
