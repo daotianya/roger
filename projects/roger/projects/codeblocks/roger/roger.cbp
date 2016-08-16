@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="roger" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/roger" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+					<Add option="-DDEBUG" />
+					<Add option="-D_DEBUG" />
+				</Compiler>
+				<Linker>
+					<Add library="../../../../../libs/wawo/svn/wawo/projects/codeblocks/wawo/bin/Debug/libwawo.a" />
+				</Linker>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/roger" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-rdynamic" />
+					<Add option="-DNDEBUG" />
+				</Compiler>
+				<Linker>
+					<Add library="../../../../../libs/wawo/svn/wawo/projects/codeblocks/wawo/bin/Release/libwawo.a" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add option="-std=c++11" />
+			<Add option="-m64" />
+			<Add option="-fexceptions" />
+			<Add option="-DOS_LINUX" />
+			<Add directory="../../../../../libs/wawo/svn/wawo/include" />
+		</Compiler>
+		<Linker>
+			<Add option="-m64" />
+			<Add option="-lpthread -rdynamic" />
+		</Linker>
+		<Unit filename="../../../src/roger/server.cpp" />
+		<Unit filename="../../../src/roger/shared.hpp" />
+		<Unit filename="../../../src/xxtea/xxtea.h" />
+		<Extensions>
+			<code_completion />
+			<debugger>
+				<remote_debugging target="Debug">
+					<options conn_type="0" serial_baud="115200" additional_cmds_before="handle SIGPIPE nostop noprint pass" />
+				</remote_debugging>
+				<remote_debugging target="Release">
+					<options conn_type="0" serial_baud="115200" additional_cmds_before="handle SIGPIPE nostop noprint pass" />
+				</remote_debugging>
+			</debugger>
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>
