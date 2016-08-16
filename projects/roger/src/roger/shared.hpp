@@ -56,8 +56,8 @@ namespace roger {
 		return it->ip.Len();
 	}
 
-	typedef wawo::net::core::TLP::HLenPacket SLenProtocol;
 
+	typedef wawo::net::core::TLP::HLenPacket SLenProtocol;
 	typedef wawo::net::peer::Cargo<wawo::net::core::TLP::Stream> ClientPeer;
 	typedef wawo::net::peer::Cargo<wawo::net::core::TLP::Stream> ServerPeer;
 

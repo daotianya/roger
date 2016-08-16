@@ -536,9 +536,6 @@ namespace roger {
 
 int main(int argc, char** argv) {
 
-	wawo::Len_CStr computer_name;
-	WAWO_ENV_INSTANCE->GetLocalComputerName(computer_name);
-
 	WAWO_WARN("[roger]server start...");
 	if (argc != 3) {
 		WAWO_FATAL("[roger] invalid parameter, usage: roger ip port");

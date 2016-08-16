@@ -118,13 +118,18 @@ namespace roger {
 
 		wawo::thread::SpinMutex m_sps_connecting_mutex;
 		ServerPeersVec m_sps_connecting;
+
+		wawo::net::SocketAddr m_listenaddr;
 	public:
 		Socks5Node(): m_state(S_IDLE) {}
 		~Socks5Node() {}
 
-		int Start() {
+		int Start( wawo::net::SocketAddr const& listen_addr ) {
 
 			wawo::thread::LockGuard<SharedMutex> lg(m_state_mutex);
+
+            m_listenaddr = listen_addr;
+
 			int prt = HttpServerNode::Start();
 			if( prt != wawo::OK ) {
 				HttpServerNode::Stop();
@@ -138,22 +143,15 @@ namespace roger {
 				return srt;
 			}
 
-			char local_ip[32] = {0};
-			GetLocalIp(local_ip,32);
-
-			//char amaip[32] = {0};
-			//memcpy( amaip, "172.31.31.234", strlen("172.31.31.234") );
-
-			SocketAddr listen_addr( local_ip, 12120 );
-
-			int lrt = RogerEncryptedNode::StartListen(listen_addr, GetBufferConfig(ENCRYPT_BUFFER_CFG));
-
+			int lrt = RogerEncryptedNode::StartListen(m_listenaddr, GetBufferConfig(ENCRYPT_BUFFER_CFG));
 			if( lrt != wawo::OK ) {
 				RogerEncryptedNode::Stop();
 				HttpServerNode::Stop();
+                WAWO_INFO("[server] listen on: %s failed, rt: %d", m_listenaddr.AddressInfo().CStr() , lrt );
 				return lrt;
 			}
 
+			WAWO_INFO("[server] listen on: %s success", m_listenaddr.AddressInfo().CStr() );
 			m_state=S_RUN;
 			return wawo::OK;
 		}
@@ -852,15 +850,24 @@ namespace roger {
 int main(int argc, char** argv) {
 	WAWO_INFO("[roger]server start...");
 	{
+
+        wawo::net::SocketAddr listen_addr;
+        if( argc != 3 ) {
+            WAWO_WARN("[roger] listen address not specified, we'll use 0.0.0.0:12120 ");
+            listen_addr = wawo::net::SocketAddr("0.0.0.0",12120 );
+        } else {
+            wawo::Len_CStr ip(argv[1]);
+            wawo::u16_t port = wawo::to_u32(argv[2]) & 0xFFFF;
+            listen_addr = wawo::net::SocketAddr(ip.CStr(), port );
+        }
+
 		wawo::app::App app;
-		//WAWO_IO_TASK_MANAGER->SetConcurrency(8);
 		WWRP<roger::Socks5Node> node( new roger::Socks5Node() );
-		int rt = node->Start();
+		int rt = node->Start(listen_addr);
 		(void) &rt;
 
 		WAWO_RETURN_V_IF_NOT_MATCH( rt, rt==wawo::OK );
 		app.RunUntil();
-		//app.CancelAllTask();
 		node->Stop();
 	}
 	WAWO_INFO("[roger]server exiting...");

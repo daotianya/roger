@@ -48,7 +48,6 @@
 		</Linker>
 		<Unit filename="../../../src/roger/server.cpp" />
 		<Unit filename="../../../src/roger/shared.hpp" />
-		<Unit filename="../../../src/xxtea/xxtea.h" />
 		<Extensions>
 			<code_completion />
 			<debugger>
