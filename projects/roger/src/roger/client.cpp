@@ -604,7 +604,8 @@ int main(int argc, char** argv) {
 		httpServer->Stop();
 		return listenrt;
 	}
-
+	
+	WAWO_INFO("[roger] service ready !!!");
 	app.RunUntil();
 	node->Stop();
 	httpServer->Stop();
