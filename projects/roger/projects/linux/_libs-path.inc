@@ -3,7 +3,7 @@ LIBS_PATH := ./../../../../libs
 LIB_WAWO_PATH					:= $(LIBS_PATH)/wawo
 LIB_WAWO_MAKEFILE_PATH			:= $(LIB_WAWO_PATH)/projects/linux
 LIB_WAWO_CONFIG_PATH			:= $(LIB_WAWO_PATH)/../wawo_config
-LIB_WAWO_BIN_PATH				:= $(LIB_WAWO_PATH)/bin/$(PRJ_PLATFORM)_$(PRJ_CONFIG)/libwawo.a
+LIB_WAWO_BIN_PATH				:= $(LIB_WAWO_PATH)/bin/$(PRJ_ARCH)_$(PRJ_BUILD)/libwawo.a
 LIB_WAWO_INCLUDE_PATH			:= $(LIB_WAWO_PATH)/include $(LIB_WAWO_CONFIG_PATH)
 
 

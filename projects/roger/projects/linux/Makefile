@@ -1,24 +1,23 @@
 CURRENT_DIR 	:= $(shell pwd)
 TARGET_NAME 	:= $(target)
-PRJ_PLATFORM 	:= x86
-X86_64			:= 1
-PRJ_CONFIG		:= release
+PRJ_ARCH 		:= x86_64
+PRJ_BUILD		:= release
 
-ifeq ($(X86_64), 1)
-	PRJ_PLATFORM := $(PRJ_PLATFORM)_64
-else
-	PRJ_PLATFORM := $(PRJ_PLATFORM)_32
+
+ifdef arch
+	PRJ_ARCH := $(arch)
 endif
 
 ifdef build
-	PRJ_CONFIG=$(build)
+	PRJ_BUILD := $(build)
 endif
+
 
 
 DEFINES := $(DEFINES)
 CC_MISC := -std=c++11
 
-ifeq ($(PRJ_CONFIG),debug)
+ifeq ($(PRJ_BUILD),debug)
 	DEFINES := $(DEFINES) DEBUG
 	CC_MISC:=$(CC_MISC) -g -Wall -fexceptions -O0
 else
@@ -26,7 +25,7 @@ else
 	CC_MISC := $(CC_MISC) -fexpensive-optimizations -O3
 endif
 
-ifeq ($(X86_64),1)
+ifeq ($(PRJ_ARCH),x86_64)
 	CC_MISC := $(CC_MISC) -m64
 else
 	CC_MISC := $(CC_MISC) -m32

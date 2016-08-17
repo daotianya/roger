@@ -379,7 +379,7 @@ namespace wawo { namespace net { namespace peer {
 
 			int Open(WWRP<SuperCargoT> const& supercargo, u32_t const& cookie, bool async = false ) {
 				LockGuard<SpinMutex> lg(m_mutex);
-				WAWO_ASSERT(m_state == S_IDLE);
+				WAWO_ASSERT(m_state == SS_IDLE);
 
 				int sndrt = _SndSyn(supercargo,cookie);
 				WAWO_RETURN_V_IF_NOT_MATCH(sndrt, sndrt ==wawo::OK);

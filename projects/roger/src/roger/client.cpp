@@ -151,6 +151,7 @@ namespace roger {
 				int rt = _ConnectOneEp();
 
 				wawo::sleep(64);
+				(void)rt;
 				//WAWO_RETURN_V_IF_NOT_MATCH(rt, rt==wawo::OK);
 			}
 
@@ -236,7 +237,7 @@ namespace roger {
 			
 			LockGuard<SharedMutex> lg_cps( m_cps_mutex );
 			std::for_each( m_cps.begin(), m_cps.end(), [](ClientPeerPair const& pair) {
-				ClientPeerIdT cpeer_id = pair.first;
+				//ClientPeerIdT cpeer_id = pair.first;
 				WWRP<ClientPeer> cpeer = pair.second;
 
 				ClientPeerCtx* cpctx = (ClientPeerCtx*) cpeer->GetContext<ClientPeerCtx>();
@@ -418,7 +419,7 @@ namespace roger {
 
 			ClientPeerCtx* cpctx = new ClientPeerCtx();
 			WAWO_ASSERT(m_eps.size() > 0);
-			static std::atomic<int> rep_idx = 0;
+			static std::atomic<int> rep_idx(0);
 			int idx = wawo::atomic_increment(&rep_idx);
 			idx = (idx) % m_eps.size();
 			cpctx->rep = m_eps[idx];
@@ -568,13 +569,18 @@ int main(int argc, char** argv) {
 
 	
 	FILE* fp = fopen("proxy.pac", "rb");
-	long begin = ftell(fp);
+	//long begin = ftell(fp);
 	int seekrt = fseek(fp, 0L, SEEK_END);
 	long end = ftell(fp);
 	int seekbeg = fseek(fp, 0L, SEEK_SET);
+
+	(void)seekrt;
+	(void)seekbeg;
+
 	WWSP<wawo::algorithm::Packet> pacpack(new wawo::algorithm::Packet(end));
 	size_t rbytes = fread((char*)pacpack->Begin(), 1, end, fp);
-	pacpack->MoveRight(end);
+	pacpack->MoveRight(rbytes);
+
 	wawo::Len_CStr pac((char*)pacpack->Begin(), pacpack->Length());
 	WWRP<roger::HttpServer> httpServer( new roger::HttpServer() );
 	httpServer->SetPac(pac);
