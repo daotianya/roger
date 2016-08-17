@@ -2,7 +2,7 @@
 
 protocol feature
           
-          1, m:n , m tcp connection map n streams
+          1, m:n , m tcp connections map n streams
           2, multiplexing on stream level
           3, reliable packet transfer
           4, ARQ retransmission for the delayed packet
