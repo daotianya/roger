@@ -11,6 +11,7 @@
 #endif
 
 #include "shared.hpp"
+//ioctl() SIOCOUTQ TIOCOUTQ
 
 namespace roger {
 
