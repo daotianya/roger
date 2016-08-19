@@ -2,7 +2,7 @@
 1459667793 source:/home/copy/winshare/svn_repository/trunk/projects/roger/projects/codeblocks/roger/main.cpp
 	<iostream>
 
-1471007521 
+1471336376 
 
 1459675267 source:/home/copy/winshare/svn_repository/trunk/projects/roger/src/roger.cpp
 	<vld.h>
@@ -47,7 +47,7 @@
 	<wawo/signal/SignalManager.h>
 	<wawo/__init__.hpp>
 
-1471267568 it__.hpp>
+1471336376 it__.hpp>
 
 1468670065 /home/copy/winshare/svn_repository/trunk/libs/wawo/svn/wawo/include/wawo/core.h
 	<cstddef>
@@ -67,7 +67,7 @@
 	<wawo/time/time.hpp>
 	<wawo/Exception.hpp>
 
-1468670065 ption.hpp>
+1471336376 ption.hpp>
 
 1471009269 /home/copy/winshare/svn_repository/trunk/libs/wawo/svn/wawo/include/wawo/config/compiler.h
 
@@ -77,7 +77,7 @@
 	<cassert>
 	<wawo/config/platform.h>
 
-1471011645 ig/platform.h>
+1471336376 ig/platform.h>
 
 1471266807 /home/copy/winshare/svn_repository/trunk/libs/wawo/svn/wawo/include/wawo/config/config.h
 
@@ -118,19 +118,19 @@
 	<wawo/string.hpp>
 	<execinfo.h>
 
-1471046767 h>
+1471336376 h>
 
 1471267229 /home/copy/winshare/svn_repository/trunk/libs/wawo/svn/wawo/include/wawo/SmartPtr.hpp
 	<wawo/basic.hpp>
 
-1471267229 c.hpp>
+1471336376 c.hpp>
 
 1464501238 /home/copy/winshare/svn_repository/trunk/libs/wawo/svn/wawo/include/wawo/SafeSingleton.hpp
 	<vector>
 	<mutex>
 	<wawo/core.h>
 
-1471007520 .h>
+1471336376 .h>
 
 1471011247 /home/copy/winshare/svn_repository/trunk/libs/wawo/svn/wawo/include/wawo/thread/Thread.hpp
 	<thread>
@@ -141,7 +141,7 @@
 	<wawo/Exception.hpp>
 	<wawo/log/LoggerManager.h>
 
-1471007521 LoggerManager.h>
+1471336376 LoggerManager.h>
 
 1471009448 /home/copy/winshare/svn_repository/trunk/libs/wawo/svn/wawo/include/wawo/log/LoggerManager.h
 	<vector>
@@ -149,14 +149,14 @@
 	<wawo/SmartPtr.hpp>
 	<wawo/log/Logger_Abstract.hpp>
 
-1471007521 Logger_Abstract.hpp>
+1471336376 Logger_Abstract.hpp>
 
 1471007521 /home/copy/winshare/svn_repository/trunk/libs/wawo/svn/wawo/include/wawo/log/Logger_Abstract.hpp
 	<wawo/core.h>
 	<wawo/SmartPtr.hpp>
 	<wawo/log/FormatInterface.h>
 
-1471007521 FormatInterface.h>
+1471336376 FormatInterface.h>
 
 1471007521 /home/copy/winshare/svn_repository/trunk/libs/wawo/svn/wawo/include/wawo/log/FormatInterface.h
 	<stdarg.h>
@@ -181,7 +181,7 @@
 	<set>
 	<wawo/thread/Tls.hpp>
 
-1471007521 ad/Tls.hpp>
+1471336376 ad/Tls.hpp>
 
 1471010446 /home/copy/winshare/svn_repository/trunk/libs/wawo/svn/wawo/include/wawo/thread/Condition.hpp
 	<condition_variable>
@@ -193,7 +193,7 @@
 	<mutex>
 	<wawo/Singleton.hpp>
 
-1468111959 leton.hpp>
+1471336376 leton.hpp>
 
 1471007521 /home/copy/winshare/svn_repository/trunk/libs/wawo/svn/wawo/include/wawo/task/TaskManager.hpp
 	<vector>
@@ -204,7 +204,7 @@
 	<wawo/thread/Thread.hpp>
 	<wawo/task/Task.hpp>
 
-1464501237 /Task.hpp>
+1471336376 /Task.hpp>
 
 1471010364 /home/copy/winshare/svn_repository/trunk/libs/wawo/svn/wawo/include/wawo/task/TaskRunnerPool.hpp
 	<string>
@@ -215,7 +215,7 @@
 	<wawo/thread/Condition.hpp>
 	<wawo/task/TaskRunner.hpp>
 
-1471010364 /TaskRunner.hpp>
+1471336376 /TaskRunner.hpp>
 
 1471010357 /home/copy/winshare/svn_repository/trunk/libs/wawo/svn/wawo/include/wawo/task/TaskRunner.hpp
 	<wawo/core.h>
@@ -230,25 +230,25 @@
 	<wawo/SmartPtr.hpp>
 	<functional>
 
-1471010304 l>
+1471336376 l>
 
 1464501237 /home/copy/winshare/svn_repository/trunk/libs/wawo/svn/wawo/include/wawo/net/core/NetEvent.hpp
 	<wawo/net/core/Event.hpp>
 
-1471140471 core/Event.hpp>
+1471336376 core/Event.hpp>
 
 1471009865 /home/copy/winshare/svn_repository/trunk/libs/wawo/svn/wawo/include/wawo/net/core/Event.hpp
 	<wawo/core.h>
 	<wawo/algorithm/Packet.hpp>
 
-1471007519 rithm/Packet.hpp>
+1471336102 rithm/Packet.hpp>
 
 1471010980 /home/copy/winshare/svn_repository/trunk/libs/wawo/svn/wawo/include/wawo/algorithm/Packet.hpp
 	<wawo/core.h>
 	<wawo/SmartPtr.hpp>
 	<wawo/algorithm/bytes_helper.hpp>
 
-1471007521 rithm/bytes_helper.hpp>
+1471336376 rithm/bytes_helper.hpp>
 
 1471011309 /home/copy/winshare/svn_repository/trunk/libs/wawo/svn/wawo/include/wawo/algorithm/bytes_helper.hpp
 	<wawo/core.h>
@@ -290,19 +290,19 @@
 	<wawo/net/core/Listener_Abstract.hpp>
 	<wawo/net/core/IOTaskManager.hpp>
 
-1471007520 core/IOTaskManager.hpp>
+1471336376 core/IOTaskManager.hpp>
 
 1466930919 /home/copy/winshare/svn_repository/trunk/libs/wawo/svn/wawo/include/wawo/net/core/Listener_Abstract.hpp
 	<wawo/SmartPtr.hpp>
 
-1466930919 tPtr.hpp>
+1471336376 tPtr.hpp>
 
 1471009877 /home/copy/winshare/svn_repository/trunk/libs/wawo/svn/wawo/include/wawo/net/core/IOTaskManager.hpp
 	<thread>
 	<wawo/Singleton.hpp>
 	<wawo/task/TaskManager.hpp>
 
-1471009877 /TaskManager.hpp>
+1471336376 /TaskManager.hpp>
 
 1464501237 /home/copy/winshare/svn_repository/trunk/libs/wawo/svn/wawo/include/wawo/net/core/SocketProxy.hpp
 	<vector>
@@ -334,7 +334,7 @@
 	<wawo/algorithm/Packet.hpp>
 	<wawo/algorithm/BytesRingBuffer.hpp>
 
-1471009913 rithm/BytesRingBuffer.hpp>
+1471336376 rithm/BytesRingBuffer.hpp>
 
 1459668931 /home/copy/winshare/svn_repository/trunk/libs/wawo/svn/wawo/include/wawo/net/peer/protocol/WebSocket.hpp
 	<wawo/net/peer/Protocol_Abstract.hpp>
@@ -367,7 +367,7 @@
 	<wawo/SmartPtr.hpp>
 	<wawo/net/Socket.hpp>
 
-1471047021 Socket.hpp>
+1471336376 Socket.hpp>
 
 1465271183 /home/copy/winshare/svn_repository/trunk/libs/wawo/svn/wawo/include/wawo/net/ServiceList.h
 	<wawo/net/service/EchoClient.hpp>
@@ -384,12 +384,12 @@
 1471136898 /home/copy/winshare/svn_repository/trunk/libs/wawo/svn/wawo/include/wawo/net/ServiceProvider_Abstract.hpp
 	<wawo/net/core/Listener_Abstract.hpp>
 
-1471007520 core/Listener_Abstract.hpp>
+1471336376 core/Listener_Abstract.hpp>
 
 1471136417 /home/copy/winshare/svn_repository/trunk/libs/wawo/svn/wawo/include/wawo/net/ServicePool.hpp
 	<wawo/thread/Mutex.hpp>
 
-1468111959 ad/Mutex.hpp>
+1471336376 ad/Mutex.hpp>
 
 1452669485 /home/copy/winshare/svn_repository/trunk/libs/wawo/svn/wawo/include/wawo/net/service/ServiceCommand.h
 
@@ -404,7 +404,7 @@
 	<wawo/net/peer/message/Wawo.hpp>
 	<wawo/net/Peer_Abstract.hpp>
 
-1471007520 Peer_Abstract.hpp>
+1471336376 Peer_Abstract.hpp>
 
 1471007520 /home/copy/winshare/svn_repository/trunk/libs/wawo/svn/wawo/include/wawo/net/PeerProxy.hpp
 	<map>
@@ -427,7 +427,7 @@
 	<wawo/env/Env_Impl_win32.hpp>
 	<wawo/env/Env_Impl_gnu.hpp>
 
-1471009340 Env_Impl_gnu.hpp>
+1471336376 Env_Impl_gnu.hpp>
 
 1460893598 /home/copy/winshare/svn_repository/trunk/libs/wawo/svn/wawo/include/wawo/env/Env_impl_posix.hpp
 	<arpa/inet.h>
@@ -448,7 +448,7 @@
 	<wawo/log/LoggerManager.h>
 	<wawo/time/time.hpp>
 
-1471007521 /time.hpp>
+1471336376 /time.hpp>
 
 1464501238 /home/copy/winshare/svn_repository/trunk/libs/wawo/svn/wawo/include/wawo/signal/SignalHandler_Abstract.h
 
@@ -467,18 +467,18 @@
 	<wawo/thread/Mutex.hpp>
 	<wawo/thread/Thread.hpp>
 
-1471007521 ad/Thread.hpp>
+1471336376 ad/Thread.hpp>
 
 1459780011 source:/home/copy/winshare/svn_repository/trunk/projects/roger/src/roger/client.cpp
 	"shared.hpp"
 
-1471267767 p"
+1471341225 p"
 
 1471266807 /home/copy/winshare/svn_repository/trunk/projects/roger/src/roger/shared.hpp
 	<wawo.h>
 	"SuperCargo.hpp"
 
-1471266807 o.hpp"
+1471341284 o.hpp"
 
 1464501232 /home/copy/winshare/svn_repository/trunk/projects/roger/src/xxtea/xxtea.h
 	<stdlib.h>
@@ -526,7 +526,7 @@
 	<wawo/net/ServiceProvider_Abstract.hpp>
 	<wawo/net/Node_Abstract.hpp>
 
-1468111959 Node_Abstract.hpp>
+1471336376 Node_Abstract.hpp>
 
 1471007520 /home/copy/winshare/svn_repository/trunk/libs/wawo/svn/wawo/include/wawo/net/Node_Abstract.hpp
 	<wawo/core.h>
@@ -586,12 +586,12 @@
 1471089990 /home/copy/winshare/svn_repository/trunk/libs/wawo/svn/wawo/include/wawo/net/HttpNode.hpp
 	<wawo/net/peer/Http.hpp>
 
-1466930919 peer/Http.hpp>
+1471336376 peer/Http.hpp>
 
 1471136483 /home/copy/winshare/svn_repository/trunk/libs/wawo/svn/wawo/include/wawo/net/WawoNode.hpp
 	<wawo/net/ServiceNode.hpp>
 
-1471136483 ServiceNode.hpp>
+1471336376 ServiceNode.hpp>
 
 1466930919 /home/copy/winshare/svn_repository/trunk/libs/wawo/svn/wawo/include/wawo/net/Messenger.hpp
 	<wawo/SmartPtr.hpp>
@@ -602,14 +602,14 @@
 	<wawo/core.h>
 	<wawo/math/formula.hpp>
 
-1471007521 /formula.hpp>
+1471336376 /formula.hpp>
 
 1471007521 /home/copy/winshare/svn_repository/trunk/libs/wawo/svn/wawo/include/wawo/security/XxTea.hpp
 	<wawo/core.h>
 	<wawo/algorithm/Packet.hpp>
 	<wawo/security/Cipher_Abstract.hpp>
 
-1471007521 rity/Cipher_Abstract.hpp>
+1471336376 rity/Cipher_Abstract.hpp>
 
 1471007521 /home/copy/winshare/svn_repository/trunk/libs/wawo/svn/wawo/include/wawo/security/Cipher_Abstract.hpp
 	<wawo/core.h>
@@ -620,7 +620,7 @@
 	<wawo/security/dh.hpp>
 	<wawo/security/XxTea.hpp>
 
-1471089990 rity/XxTea.hpp>
+1471336376 rity/XxTea.hpp>
 
 1464876927 /home/copy/winshare/svn_repository/trunk/libs/wawo/svn/wawo/include/wawo/net/peer/protocol/SymmetricEncrypt.hpp
 	<wawo/net/peer/protocol/HLenPacket.hpp>
@@ -639,7 +639,7 @@
 	<vector>
 	<wawo/net/SocketAddr.hpp>
 
-1468111959 SocketAddr.hpp>
+1471336376 SocketAddr.hpp>
 
 1471089990 /home/copy/winshare/svn_repository/trunk/libs/wawo/svn/wawo/include/wawo/Singleton.hpp
 	<mutex>
@@ -654,7 +654,7 @@
 	<wawo/algorithm/BytesRingBuffer.hpp>
 	<wawo/net/core/TLP_Abstract.hpp>
 
-1471007520 core/TLP_Abstract.hpp>
+1471336376 core/TLP_Abstract.hpp>
 
 1471009913 /home/copy/winshare/svn_repository/trunk/libs/wawo/svn/wawo/include/wawo/net/core/TLP_Abstract.hpp
 	<wawo/SmartPtr.hpp>
@@ -677,7 +677,7 @@
 	<wawo/security/Cipher_Abstract.hpp>
 	<wawo/net/core/TLP/HLenPacket.hpp>
 
-1471007520 core/TLP/HLenPacket.hpp>
+1471336376 core/TLP/HLenPacket.hpp>
 
 1471007521 /home/copy/winshare/svn_repository/trunk/libs/wawo/svn/wawo/include/wawo/security/obfuscate.hpp
 	<wawo/core.h>
@@ -697,7 +697,7 @@
 	<wawo/net/core/TLP_Abstract.hpp>
 	<wawo/net/NetEvent.hpp>
 
-1471266807 NetEvent.hpp>
+1471336376 NetEvent.hpp>
 
 1471007520 /home/copy/winshare/svn_repository/trunk/libs/wawo/svn/wawo/include/wawo/net/SocketAddr.hpp
 	<wawo/core.h>
@@ -721,7 +721,7 @@
 	<wawo/net/NetEvent.hpp>
 	<wawo/net/SocketObserver.hpp>
 
-1471007520 SocketObserver.hpp>
+1471336376 SocketObserver.hpp>
 
 1471007520 /home/copy/winshare/svn_repository/trunk/libs/wawo/svn/wawo/include/wawo/net/peer/Cargo.hpp
 	<wawo/net/core/TLP/HLenPacket.hpp>
@@ -730,7 +730,7 @@
 	<wawo/net/Peer_Abstract.hpp>
 	<wawo/net/peer/message/Packet.hpp>
 
-1471007520 peer/message/Packet.hpp>
+1471336376 peer/message/Packet.hpp>
 
 1469884570 /home/copy/winshare/svn_repository/trunk/libs/wawo/svn/wawo/include/wawo/net/peer/message/Packet.hpp
 	<wawo/core.h>
@@ -762,7 +762,7 @@
 	<wawo.h>
 	"StreamPacket.hpp"
 
-1471266807 ket.hpp"
+1471336102 ket.hpp"
 
 1471007519 /home/copy/winshare/svn_repository/trunk/projects/roger/src/roger/StreamPacket.hpp
 	<wawo/algorithm/Packet.hpp>
@@ -1215,5 +1215,455 @@
 	"StreamPacket.hpp"
 
 1471336102 /home/copy/roger/projects/roger/src/roger/StreamPacket.hpp
+	<wawo/algorithm/Packet.hpp>
+
+1471434105 source:/home/copy/roger/roger/projects/roger/src/roger/server.cpp
+	<vld.h>
+	"shared.hpp"
+
+1471434105 /home/copy/roger/roger/projects/roger/src/roger/shared.hpp
+	<wawo.h>
+	"SuperCargo.hpp"
+
+1471434271 /home/copy/roger/roger/libs/wawo/include/wawo.h
+	<wawo/core.h>
+	<wawo/SmartPtr.hpp>
+	<wawo/Singleton.hpp>
+	<wawo/thread/Thread.hpp>
+	<wawo/thread/Mutex.hpp>
+	<wawo/thread/Condition.hpp>
+	<wawo/log/LoggerManager.h>
+	<wawo/log/ConsoleLogger.h>
+	<wawo/log/FileLogger.h>
+	<wawo/log/SysLogger.h>
+	<wawo/task/TaskManager.hpp>
+	<wawo/security/dh.hpp>
+	<wawo/security/XxTea.hpp>
+	<wawo/net/core/TLP/Stream.hpp>
+	<wawo/net/core/TLP/HLenPacket.hpp>
+	<wawo/net/core/TLP/DH_SymmetricEncrypt.hpp>
+	<wawo/net/NetEvent.hpp>
+	<wawo/net/Socket.hpp>
+	<wawo/net/SocketObserver.hpp>
+	<wawo/net/SocketProxy.hpp>
+	<wawo/net/Peer_Abstract.hpp>
+	<wawo/net/peer/Cargo.hpp>
+	<wawo/net/peer/Wawo.hpp>
+	<wawo/net/peer/Http.hpp>
+	<wawo/net/ServicePool.hpp>
+	<wawo/net/PeerProxy.hpp>
+	<wawo/net/ServiceNode.hpp>
+	<wawo/net/CargoNode.hpp>
+	<wawo/net/HttpNode.hpp>
+	<wawo/net/WawoNode.hpp>
+	<wawo/net/Messenger.hpp>
+	<wawo/env/Env.hpp>
+	<wawo/app/App.hpp>
+	<wawo/signal/SignalManager.h>
+	<wawo/__init__.hpp>
+
+1471434271 /home/copy/roger/roger/libs/wawo/include/wawo/core.h
+	<cstddef>
+	<cstdio>
+	<csignal>
+	<cstdlib>
+	<cstdarg>
+	<cstring>
+	<cassert>
+	<wawo/config/compiler.h>
+	<wawo/config/platform.h>
+	<wawo/macros.h>
+	<wawo/config/config.h>
+	<wawo/constants.h>
+	<wawo/memory/memory.h>
+	<wawo/basic.hpp>
+	<wawo/time/time.hpp>
+	<wawo/Exception.hpp>
+
+1471434271 /home/copy/roger/roger/libs/wawo/include/wawo/config/compiler.h
+
+1471434271 /home/copy/roger/roger/libs/wawo/include/wawo/config/platform.h
+
+1471434271 /home/copy/roger/roger/libs/wawo/include/wawo/macros.h
+	<cassert>
+	<wawo/config/platform.h>
+
+1471434271 /home/copy/roger/roger/libs/wawo/include/wawo/config/config.h
+
+1471590189 /home/copy/roger/roger/libs/wawo/include/wawo/constants.h
+	<wawo/config/compiler.h>
+	<limits.h>
+
+1471434271 /home/copy/roger/roger/libs/wawo/include/wawo/memory/memory.h
+	<cstdlib>
+
+1471434271 /home/copy/roger/roger/libs/wawo/include/wawo/basic.hpp
+	<chrono>
+	<thread>
+	<wawo/config/platform.h>
+	<wawo/config/compiler.h>
+	<wawo/macros.h>
+	<wawo/constants.h>
+	<atomic>
+
+1471434271 /home/copy/roger/roger/libs/wawo/include/wawo/time/time.hpp
+	<ctime>
+	<wawo/core.h>
+	<wawo/string.hpp>
+	<chrono>
+
+1471434271 /home/copy/roger/roger/libs/wawo/include/wawo/string.hpp
+	<cstring>
+	<cwchar>
+	<algorithm>
+	<vector>
+	<wawo/config/platform.h>
+
+1471434271 /home/copy/roger/roger/libs/wawo/include/wawo/Exception.hpp
+	<wawo/config/platform.h>
+	<wawo/basic.hpp>
+	<wawo/string.hpp>
+	<execinfo.h>
+
+1471434271 /home/copy/roger/roger/libs/wawo/include/wawo/SmartPtr.hpp
+	<wawo/basic.hpp>
+
+1471434271 /home/copy/roger/roger/libs/wawo/include/wawo/Singleton.hpp
+	<mutex>
+	<atomic>
+	<wawo/core.h>
+
+1471434271 /home/copy/roger/roger/libs/wawo/include/wawo/thread/Thread.hpp
+	<thread>
+	<exception>
+	<atomic>
+	<wawo/core.h>
+	<wawo/thread/Mutex.hpp>
+	<wawo/Exception.hpp>
+	<wawo/log/LoggerManager.h>
+
+1471434271 /home/copy/roger/roger/libs/wawo/include/wawo/thread/Mutex.hpp
+	<atomic>
+	<mutex>
+	<wawo/core.h>
+	<wawo/thread/Condition.hpp>
+	<wawo/log/LoggerManager.h>
+	<pthread.h>
+	<set>
+	<wawo/thread/Tls.hpp>
+
+1471434271 /home/copy/roger/roger/libs/wawo/include/wawo/thread/Condition.hpp
+	<condition_variable>
+	<wawo/core.h>
+
+1471434271 /home/copy/roger/roger/libs/wawo/include/wawo/log/LoggerManager.h
+	<vector>
+	<wawo/Singleton.hpp>
+	<wawo/SmartPtr.hpp>
+	<wawo/log/Logger_Abstract.hpp>
+
+1471434271 /home/copy/roger/roger/libs/wawo/include/wawo/log/Logger_Abstract.hpp
+	<wawo/core.h>
+	<wawo/SmartPtr.hpp>
+	<wawo/log/FormatInterface.h>
+
+1471434271 /home/copy/roger/roger/libs/wawo/include/wawo/log/FormatInterface.h
+	<stdarg.h>
+
+1471434271 /home/copy/roger/roger/libs/wawo/include/wawo/thread/Tls.hpp
+	<algorithm>
+	<thread>
+	<mutex>
+	<wawo/Singleton.hpp>
+
+1471434271 /home/copy/roger/roger/libs/wawo/include/wawo/log/ConsoleLogger.h
+	<wawo/log/Logger_Abstract.hpp>
+
+1471434271 /home/copy/roger/roger/libs/wawo/include/wawo/log/FileLogger.h
+	<wawo/log/Logger_Abstract.hpp>
+	<string>
+
+1471434271 /home/copy/roger/roger/libs/wawo/include/wawo/log/SysLogger.h
+	<wawo/log/Logger_Abstract.hpp>
+
+1471434271 /home/copy/roger/roger/libs/wawo/include/wawo/task/TaskManager.hpp
+	<vector>
+	<wawo/core.h>
+	<wawo/SmartPtr.hpp>
+	<wawo/Singleton.hpp>
+	<wawo/task/TaskRunnerPool.hpp>
+	<wawo/thread/Thread.hpp>
+	<wawo/task/Task.hpp>
+
+1471434271 /home/copy/roger/roger/libs/wawo/include/wawo/task/TaskRunnerPool.hpp
+	<string>
+	<list>
+	<wawo/core.h>
+	<wawo/SmartPtr.hpp>
+	<wawo/thread/Mutex.hpp>
+	<wawo/thread/Condition.hpp>
+	<wawo/task/TaskRunner.hpp>
+
+1471434271 /home/copy/roger/roger/libs/wawo/include/wawo/task/TaskRunner.hpp
+	<wawo/core.h>
+	<wawo/SmartPtr.hpp>
+	<wawo/thread/Mutex.hpp>
+	<wawo/thread/Thread.hpp>
+	<wawo/thread/Condition.hpp>
+	<wawo/task/Task.hpp>
+
+1471434271 /home/copy/roger/roger/libs/wawo/include/wawo/task/Task.hpp
+	<wawo/core.h>
+	<wawo/SmartPtr.hpp>
+	<functional>
+
+1471434271 /home/copy/roger/roger/libs/wawo/include/wawo/security/dh.hpp
+	<wawo/core.h>
+	<wawo/math/formula.hpp>
+
+1471434271 /home/copy/roger/roger/libs/wawo/include/wawo/math/formula.hpp
+	<wawo/core.h>
+
+1471434271 /home/copy/roger/roger/libs/wawo/include/wawo/security/XxTea.hpp
+	<wawo/core.h>
+	<wawo/algorithm/Packet.hpp>
+	<wawo/security/Cipher_Abstract.hpp>
+
+1471434271 /home/copy/roger/roger/libs/wawo/include/wawo/algorithm/Packet.hpp
+	<wawo/core.h>
+	<wawo/SmartPtr.hpp>
+	<wawo/algorithm/bytes_helper.hpp>
+
+1471434271 /home/copy/roger/roger/libs/wawo/include/wawo/algorithm/bytes_helper.hpp
+	<wawo/core.h>
+
+1471434271 /home/copy/roger/roger/libs/wawo/include/wawo/security/Cipher_Abstract.hpp
+	<wawo/core.h>
+	<wawo/algorithm/Packet.hpp>
+
+1471434271 /home/copy/roger/roger/libs/wawo/include/wawo/net/core/TLP/Stream.hpp
+	<wawo/algorithm/Packet.hpp>
+	<wawo/algorithm/BytesRingBuffer.hpp>
+	<wawo/net/core/TLP_Abstract.hpp>
+
+1471434271 /home/copy/roger/roger/libs/wawo/include/wawo/algorithm/BytesRingBuffer.hpp
+	<wawo/SmartPtr.hpp>
+	<wawo/algorithm/bytes_helper.hpp>
+
+1471434271 /home/copy/roger/roger/libs/wawo/include/wawo/net/core/TLP_Abstract.hpp
+	<wawo/SmartPtr.hpp>
+	<wawo/algorithm/Packet.hpp>
+	<wawo/algorithm/BytesRingBuffer.hpp>
+
+1471434271 /home/copy/roger/roger/libs/wawo/include/wawo/net/core/TLP/HLenPacket.hpp
+	<wawo/algorithm/Packet.hpp>
+	<wawo/log/LoggerManager.h>
+	<wawo/net/core/TLP_Abstract.hpp>
+
+1471434271 /home/copy/roger/roger/libs/wawo/include/wawo/net/core/TLP/DH_SymmetricEncrypt.hpp
+	<wawo/net/core/TLP/SymmetricEncrypt.hpp>
+	<wawo/security/dh.hpp>
+	<wawo/security/obfuscate.hpp>
+	<wawo/security/XxTea.hpp>
+
+1471434271 /home/copy/roger/roger/libs/wawo/include/wawo/net/core/TLP/SymmetricEncrypt.hpp
+	<wawo/algorithm/Packet.hpp>
+	<wawo/security/Cipher_Abstract.hpp>
+	<wawo/net/core/TLP/HLenPacket.hpp>
+
+1471434271 /home/copy/roger/roger/libs/wawo/include/wawo/security/obfuscate.hpp
+	<wawo/core.h>
+
+1471434271 /home/copy/roger/roger/libs/wawo/include/wawo/net/NetEvent.hpp
+	<wawo/net/core/Event.hpp>
+
+1471434271 /home/copy/roger/roger/libs/wawo/include/wawo/net/core/Event.hpp
+	<wawo/core.h>
+	<wawo/algorithm/Packet.hpp>
+
+1471598402 /home/copy/roger/roger/libs/wawo/include/wawo/net/Socket.hpp
+	<wawo/core.h>
+	<wawo/SmartPtr.hpp>
+	<wawo/time/time.hpp>
+	<wawo/thread/Mutex.hpp>
+	<wawo/net/SocketAddr.hpp>
+	<wawo/algorithm/BytesRingBuffer.hpp>
+	<wawo/algorithm/Packet.hpp>
+	<wawo/net/core/Dispatcher_Abstract.hpp>
+	<wawo/net/core/TLP_Abstract.hpp>
+	<wawo/net/NetEvent.hpp>
+
+1471434271 /home/copy/roger/roger/libs/wawo/include/wawo/net/SocketAddr.hpp
+	<wawo/core.h>
+
+1471434271 /home/copy/roger/roger/libs/wawo/include/wawo/net/core/Dispatcher_Abstract.hpp
+	<vector>
+	<queue>
+	<map>
+	<wawo/SmartPtr.hpp>
+	<wawo/thread/Mutex.hpp>
+	<wawo/log/LoggerManager.h>
+	<wawo/net/core/Listener_Abstract.hpp>
+	<wawo/net/core/IOTaskManager.hpp>
+
+1471434271 /home/copy/roger/roger/libs/wawo/include/wawo/net/core/Listener_Abstract.hpp
+	<wawo/SmartPtr.hpp>
+
+1471434271 /home/copy/roger/roger/libs/wawo/include/wawo/net/core/IOTaskManager.hpp
+	<thread>
+	<wawo/Singleton.hpp>
+	<wawo/task/TaskManager.hpp>
+
+1471434271 /home/copy/roger/roger/libs/wawo/include/wawo/net/SocketObserver.hpp
+	<queue>
+	<vector>
+	<wawo/core.h>
+	<wawo/thread/Thread.hpp>
+	<wawo/SmartPtr.hpp>
+	<wawo/task/Task.hpp>
+	<wawo/net/Socket.hpp>
+
+1471434271 /home/copy/roger/roger/libs/wawo/include/wawo/net/SocketProxy.hpp
+	<queue>
+	<wawo/core.h>
+	<wawo/SmartPtr.hpp>
+	<wawo/thread/Thread.hpp>
+	<wawo/net/core/Listener_Abstract.hpp>
+	<wawo/net/Socket.hpp>
+	<wawo/net/NetEvent.hpp>
+	<wawo/net/SocketObserver.hpp>
+
+1471434271 /home/copy/roger/roger/libs/wawo/include/wawo/net/Peer_Abstract.hpp
+	<vector>
+	<wawo/SmartPtr.hpp>
+	<wawo/net/Socket.hpp>
+
+1471434271 /home/copy/roger/roger/libs/wawo/include/wawo/net/peer/Cargo.hpp
+	<wawo/net/core/TLP/HLenPacket.hpp>
+	<wawo/net/core/Listener_Abstract.hpp>
+	<wawo/net/core/Dispatcher_Abstract.hpp>
+	<wawo/net/Peer_Abstract.hpp>
+	<wawo/net/peer/message/Packet.hpp>
+
+1471434271 /home/copy/roger/roger/libs/wawo/include/wawo/net/peer/message/Packet.hpp
+	<wawo/core.h>
+	<wawo/algorithm/Packet.hpp>
+
+1471434271 /home/copy/roger/roger/libs/wawo/include/wawo/net/peer/Wawo.hpp
+	<wawo/thread/Mutex.hpp>
+	<wawo/net/core/TLP/HLenPacket.hpp>
+	<wawo/net/peer/message/Wawo.hpp>
+	<wawo/net/Peer_Abstract.hpp>
+
+1471434271 /home/copy/roger/roger/libs/wawo/include/wawo/net/peer/message/Wawo.hpp
+	<wawo/core.h>
+
+1471434271 /home/copy/roger/roger/libs/wawo/include/wawo/net/peer/Http.hpp
+	<vector>
+	<wawo/core.h>
+	<wawo/thread/Mutex.hpp>
+	<wawo/net/core/Listener_Abstract.hpp>
+	<wawo/net/core/Dispatcher_Abstract.hpp>
+	<wawo/net/core/TLP/Stream.hpp>
+	<wawo/net/NetEvent.hpp>
+	<wawo/net/Peer_Abstract.hpp>
+	<wawo/net/peer/message/Http.hpp>
+	<wawo/net/Socket.hpp>
+
+1471434271 /home/copy/roger/roger/libs/wawo/include/wawo/net/peer/message/Http.hpp
+	<map>
+	<wawo/core.h>
+
+1471434271 /home/copy/roger/roger/libs/wawo/include/wawo/net/ServicePool.hpp
+	<wawo/thread/Mutex.hpp>
+
+1471434271 /home/copy/roger/roger/libs/wawo/include/wawo/net/PeerProxy.hpp
+	<map>
+	<wawo/core.h>
+	<wawo/net/NetEvent.hpp>
+	<wawo/net/SocketProxy.hpp>
+	<wawo/net/core/Listener_Abstract.hpp>
+
+1471434271 /home/copy/roger/roger/libs/wawo/include/wawo/net/ServiceNode.hpp
+	<wawo/core.h>
+	<wawo/net/ServicePool.hpp>
+	<wawo/net/ServiceProvider_Abstract.hpp>
+	<wawo/net/Node_Abstract.hpp>
+
+1471434271 /home/copy/roger/roger/libs/wawo/include/wawo/net/ServiceProvider_Abstract.hpp
+	<wawo/net/core/Listener_Abstract.hpp>
+
+1471434271 /home/copy/roger/roger/libs/wawo/include/wawo/net/Node_Abstract.hpp
+	<wawo/core.h>
+	<wawo/net/core/Listener_Abstract.hpp>
+
+1471434271 /home/copy/roger/roger/libs/wawo/include/wawo/net/CargoNode.hpp
+	<wawo/net/Node_Abstract.hpp>
+
+1471434271 /home/copy/roger/roger/libs/wawo/include/wawo/net/HttpNode.hpp
+	<wawo/net/peer/Http.hpp>
+
+1471434271 /home/copy/roger/roger/libs/wawo/include/wawo/net/WawoNode.hpp
+	<wawo/net/ServiceNode.hpp>
+
+1471434271 /home/copy/roger/roger/libs/wawo/include/wawo/net/Messenger.hpp
+	<wawo/SmartPtr.hpp>
+	<wawo/algorithm/Packet.hpp>
+	<wawo/net/peer/Http.hpp>
+
+1471434271 /home/copy/roger/roger/libs/wawo/include/wawo/env/Env.hpp
+	<wawo/core.h>
+	<wawo/Singleton.hpp>
+	<wawo/env/Env_Impl_win32.hpp>
+	<wawo/env/Env_Impl_gnu.hpp>
+
+1471434271 /home/copy/roger/roger/libs/wawo/include/wawo/env/Env_Impl_win32.hpp
+	<wawo/core.h>
+	<iphlpapi.h>
+	<wawo/log/LoggerManager.h>
+
+1471434271 /home/copy/roger/roger/libs/wawo/include/wawo/env/Env_Impl_gnu.hpp
+	<arpa/inet.h>
+	<sys/socket.h>
+	<netdb.h>
+	<ifaddrs.h>
+	<unistd.h>
+	<vector>
+	<wawo/net/SocketAddr.hpp>
+
+1471434271 /home/copy/roger/roger/libs/wawo/include/wawo/app/App.hpp
+	<set>
+	<wawo/core.h>
+	<wawo/signal/SignalHandler_Abstract.h>
+	<wawo/signal/SignalManager.h>
+	<wawo/log/LoggerManager.h>
+	<wawo/time/time.hpp>
+
+1471434271 /home/copy/roger/roger/libs/wawo/include/wawo/signal/SignalHandler_Abstract.h
+
+1471434271 /home/copy/roger/roger/libs/wawo/include/wawo/signal/SignalManager.h
+	<wawo/core.h>
+	<wawo/Singleton.hpp>
+	<wawo/signal/SignalHandler_Abstract.h>
+	<map>
+	<vector>
+	<signal.h>
+	<vector>
+	<wawo/Singleton.hpp>
+	<wawo/thread/Mutex.hpp>
+
+1471434271 /home/copy/roger/roger/libs/wawo/include/wawo/__init__.hpp
+	<wawo/thread/Mutex.hpp>
+	<wawo/thread/Thread.hpp>
+
+1471604849 /home/copy/roger/roger/projects/roger/src/roger/SuperCargo.hpp
+	<atomic>
+	<vector>
+	<list>
+	<map>
+	<wawo.h>
+	"StreamPacket.hpp"
+
+1471434105 /home/copy/roger/roger/projects/roger/src/roger/StreamPacket.hpp
 	<wawo/algorithm/Packet.hpp>
 

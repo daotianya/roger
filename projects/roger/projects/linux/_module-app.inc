@@ -43,6 +43,7 @@ APP_ALL_O_FILES_CLIENT	:= $(addprefix $(CLIENT_BIN_OBJECTS_PATH)/,$(APP_ALL_O_FI
 #custome for codeblock
 #CC_MISC := $(CC_MISC) -finput-charset=GBK -fexec-charset=GBK
 
+CC_MISC := $(CC_MISC) -rdynamic
 roger_server: wawo $(SERVER_TARGET)
 roger_client: wawo $(CLIENT_TARGET)
 
@@ -54,7 +55,7 @@ $(SERVER_TARGET): $(APP_ALL_O_FILES_SERVER)
 	@echo "---"
 	@echo \*\* assembling $(SERVER_TARGET)...
 	@echo $(CXX) $^ -o $@ $(LINK_LIBS)
-	@$(CXX) $^ -o $@ $(LINK_LIBS) 
+	@$(CXX) -rdynamic $^ -o $@ $(LINK_LIBS) 
 	@echo "---"
 	
 $(CLIENT_TARGET): $(APP_ALL_O_FILES_CLIENT)
