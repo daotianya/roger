@@ -147,8 +147,9 @@ namespace wawo { namespace net { namespace peer {
 								if (m_sockets[sidx]->lst_left_snd_buffer_size < leftbuffersize) {
 									WAWO_THROW_EXCEPTION("what!!! logic issue for choke");
 								}
+								u32_t last_snd = (m_sockets[sidx]->lst_left_snd_buffer_size - leftbuffersize);
 
-								if ((m_sockets[sidx]->lst_left_snd_buffer_size - leftbuffersize) < (2*SegmentDataSize)) {
+								if (last_snd<(2*SegmentDataSize)) {
 									continue;
 								}
 							}
@@ -156,22 +157,34 @@ namespace wawo { namespace net { namespace peer {
 							m_sockets[sidx]->state = S_UNCHOKED;
 							m_sockets[sidx]->lst_choke_time = 0;
 							m_sockets[sidx]->choke_buffer_size = InitChokeSize;
+							m_sockets[sidx]->lst_left_snd_buffer_size = leftbuffersize;
 							WAWO_WARN("[roger] unchoke socket: #%d:%s, left: %u", socket->GetFd(), socket->GetRemoteAddr().AddressInfo().CStr(), leftbuffersize);
 						}
 						else {
-							if (leftbuffersize > m_sockets[sidx]->choke_buffer_size) {
-								m_sockets[sidx]->lst_left_snd_buffer_size = leftbuffersize;
-								m_sockets[sidx]->state = S_CHOKED;
-								m_sockets[sidx]->lst_choke_time = now;
+							if ( (m_sockets[sidx]->lst_left_snd_buffer_size >0) && (leftbuffersize == 0)) {
+								u32_t choke_size = (m_sockets[sidx]->choke_buffer_size + 1024);
+								m_sockets[sidx]->choke_buffer_size = WAWO_MIN(choke_size, MaxChokeSize);
+							} else {
 
-								WAWO_WARN("[roger] choke socket: #%d:%s, left buffer: %u", socket->GetFd(), socket->GetRemoteAddr().AddressInfo().CStr(), leftbuffersize );
-								continue;
+								if (leftbuffersize > m_sockets[sidx]->choke_buffer_size) {
+									u32_t last_snd = (m_sockets[sidx]->lst_left_snd_buffer_size - leftbuffersize);
+									if ( last_snd<(leftbuffersize >>1)) {
+										m_sockets[sidx]->lst_left_snd_buffer_size = leftbuffersize;
+										m_sockets[sidx]->state = S_CHOKED;
+										m_sockets[sidx]->lst_choke_time = now;
+
+										WAWO_WARN("[roger] choke socket: #%d:%s, left buffer: %u", socket->GetFd(), socket->GetRemoteAddr().AddressInfo().CStr(), leftbuffersize);
+										continue;
+									}
+								}
+
+								u32_t choke_size = (m_sockets[sidx]->choke_buffer_size - 1024);
+								m_sockets[sidx]->choke_buffer_size = WAWO_MAX(choke_size, MaxChokeSize);
+
+								if (leftbuffersize > MaxChokeSize) {
+									continue;
+								}
 							}
-
-							//if (leftbuffersize == 0) {
-							//	u32_t choke_size = (m_sockets[sidx]->choke_buffer_size + 1024);
-							//	m_sockets[sidx]->choke_buffer_size = WAWO_MIN(choke_size, MaxChokeSize);
-							//}
 						}
 #endif
 
@@ -179,6 +192,7 @@ namespace wawo { namespace net { namespace peer {
 						if (dosndrt == wawo::OK) {
 #if WAWO_ISGNU
 							m_sockets[sidx]->lst_snd_time = now;
+							m_sockets[sidx]->lst_left_snd_buffer_size = leftbuffersize + pack->Length();
 #endif
 							break;
 						}

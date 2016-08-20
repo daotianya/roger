@@ -80,7 +80,7 @@ namespace roger {
 		S5C_BIND		= 0x02,
 		S5C_UDP			= 0x03
 	};
-	const int ENCRYPT_BUFFER_CFG = wawo::net::SBCT_LARGE;
+	const int ENCRYPT_BUFFER_CFG = wawo::net::SBCT_MEDIUM_UPPER;
 }
 
 #define EP_SEND_PACKET(retval,rep,cpeer_id,packet) \
