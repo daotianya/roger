@@ -14,7 +14,7 @@ namespace wawo { namespace net { namespace peer {
 	namespace super_cargo {
 
 		const static u32_t SegmentDataSize = (1400 - (12 + 20)); //mss - segment_header - lowwer pakcet header
-		const static u32_t InitChokeSize = 16*1024;
+		const static u32_t MinChokeSize = 12*1024;
 		const static u32_t MaxChokeSize = 32*1024;
 
 		typedef u32_t SuperCargoIdT;
@@ -156,7 +156,7 @@ namespace wawo { namespace net { namespace peer {
 
 							m_sockets[sidx]->state = S_UNCHOKED;
 							m_sockets[sidx]->lst_choke_time = 0;
-							m_sockets[sidx]->choke_buffer_size = InitChokeSize;
+							m_sockets[sidx]->choke_buffer_size = MinChokeSize;
 							m_sockets[sidx]->lst_left_snd_buffer_size = leftbuffersize;
 							WAWO_WARN("[roger] unchoke socket: #%d:%s, left: %u", socket->GetFd(), socket->GetRemoteAddr().AddressInfo().CStr(), leftbuffersize);
 						}
@@ -179,7 +179,7 @@ namespace wawo { namespace net { namespace peer {
 								}
 
 								u32_t choke_size = (m_sockets[sidx]->choke_buffer_size - 1024);
-								m_sockets[sidx]->choke_buffer_size = WAWO_MAX(choke_size, MaxChokeSize);
+								m_sockets[sidx]->choke_buffer_size = WAWO_MAX(choke_size, MinChokeSize);
 
 								if (leftbuffersize > MaxChokeSize) {
 									continue;
@@ -226,7 +226,7 @@ namespace wawo { namespace net { namespace peer {
 						m_sockets[i]->lst_left_snd_buffer_size = 0;
 						m_sockets[i]->type = T_HANGING;
 						m_sockets[i]->state = S_UNCHOKED;
-						m_sockets[i]->choke_buffer_size = InitChokeSize;
+						m_sockets[i]->choke_buffer_size = MinChokeSize;
 						++m_sockets_count[T_HANGING];
 						return;
 					}
