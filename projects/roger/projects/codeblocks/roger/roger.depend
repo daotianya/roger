@@ -1221,7 +1221,7 @@
 	<vld.h>
 	"shared.hpp"
 
-1471434105 /home/copy/roger/roger/projects/roger/src/roger/shared.hpp
+1471662258 /home/copy/roger/roger/projects/roger/src/roger/shared.hpp
 	<wawo.h>
 	"SuperCargo.hpp"
 
@@ -1523,7 +1523,7 @@
 	<wawo/task/Task.hpp>
 	<wawo/net/Socket.hpp>
 
-1471434271 /home/copy/roger/roger/libs/wawo/include/wawo/net/SocketProxy.hpp
+1471661191 /home/copy/roger/roger/libs/wawo/include/wawo/net/SocketProxy.hpp
 	<queue>
 	<wawo/core.h>
 	<wawo/SmartPtr.hpp>
@@ -1577,7 +1577,7 @@
 1471434271 /home/copy/roger/roger/libs/wawo/include/wawo/net/ServicePool.hpp
 	<wawo/thread/Mutex.hpp>
 
-1471434271 /home/copy/roger/roger/libs/wawo/include/wawo/net/PeerProxy.hpp
+1471663247 /home/copy/roger/roger/libs/wawo/include/wawo/net/PeerProxy.hpp
 	<map>
 	<wawo/core.h>
 	<wawo/net/NetEvent.hpp>
@@ -1656,7 +1656,7 @@
 	<wawo/thread/Mutex.hpp>
 	<wawo/thread/Thread.hpp>
 
-1471604849 /home/copy/roger/roger/projects/roger/src/roger/SuperCargo.hpp
+1471682829 /home/copy/roger/roger/projects/roger/src/roger/SuperCargo.hpp
 	<atomic>
 	<vector>
 	<list>

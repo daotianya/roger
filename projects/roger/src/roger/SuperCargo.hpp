@@ -14,6 +14,9 @@ namespace wawo { namespace net { namespace peer {
 	namespace super_cargo {
 
 		const static u32_t SegmentDataSize = (1400 - (12 + 20)); //mss - segment_header - lowwer pakcet header
+		const static u16_t InitChokeSize = 8*1024;
+		const static u16_t MaxChokeSize = 32*1024;
+
 		typedef u32_t SuperCargoIdT;
 
 		enum PeerFlagBit {
@@ -76,11 +79,11 @@ namespace wawo { namespace net { namespace peer {
 				u32_t lst_left_snd_buffer_size;
 				u8_t type;
 				u8_t state;
+				u16_t choke_buffer_size;
 			};
 
 			SharedMutex m_mutex;
 			WWSP<SocketCtx> m_sockets[SOCKETS_LIMIT];
-//			u8_t m_sockets_state[SOCKETS_LIMIT];
 
 			std::atomic<u8_t> m_last_sidx[T_MAX];
 			u8_t m_sockets_count[T_MAX];
@@ -88,7 +91,6 @@ namespace wawo { namespace net { namespace peer {
 			{
 				for (int i = 0; i < SOCKETS_LIMIT; i++) {
 					m_sockets[i] = NULL;
-					//m_sockets_state[i] = T_NONE;
 				}
 
 				for (int i = 0; i < T_MAX; i++) {
@@ -107,8 +109,9 @@ namespace wawo { namespace net { namespace peer {
 					return wawo::E_PEER_NO_SOCKET_ATTACHED;
 				}
 
-				u32_t idx = 0;
+				u8_t idx = 0;
 				int dosndrt = wawo::E_SUPER_CARGO_NO_SOCKETS_TO_SND;
+
 				do {
 					u8_t sidx = wawo::atomic_increment(&m_last_sidx[t]) % SOCKETS_LIMIT;
 					if (m_sockets[sidx] == NULL) {
@@ -135,8 +138,8 @@ namespace wawo { namespace net { namespace peer {
 
 							if (leftbuffersize != 0) {
 
-								if ( (leftbuffersize == m_sockets[sidx]->lst_left_snd_buffer_size) && ((now - m_sockets[sidx]->lst_choke_time) >= 15000) ) {
-									m_sockets[sidx]->socket->Shutdown(-999);
+								if ( (leftbuffersize == m_sockets[sidx]->lst_left_snd_buffer_size) && ((now - m_sockets[sidx]->lst_choke_time) >= 30000) ) {
+									m_sockets[sidx]->socket->Shutdown(wawo::net::SHUTDOWN_RDWR,-999);
 									WAWO_FATAL("[roger]close rep for snd choke");
 									continue;
 								}
@@ -145,23 +148,29 @@ namespace wawo { namespace net { namespace peer {
 									WAWO_THROW_EXCEPTION("what!!! logic issue for choke");
 								}
 
-								if ((m_sockets[sidx]->lst_left_snd_buffer_size - leftbuffersize) < 2 * SegmentDataSize) {
+								if ((m_sockets[sidx]->lst_left_snd_buffer_size - leftbuffersize) < (2*SegmentDataSize)) {
 									continue;
 								}
 							}
 
 							m_sockets[sidx]->state = S_UNCHOKED;
 							m_sockets[sidx]->lst_choke_time = 0;
+							m_sockets[sidx]->choke_buffer_size = InitChokeSize;
 							WAWO_WARN("[roger] unchoke socket: #%d:%s, left: %u", socket->GetFd(), socket->GetRemoteAddr().AddressInfo().CStr(), leftbuffersize);
 						}
 						else {
-							if (leftbuffersize > (SegmentDataSize*8) ) {
+							if (leftbuffersize > m_sockets[sidx]->choke_buffer_size) {
 								m_sockets[sidx]->lst_left_snd_buffer_size = leftbuffersize;
 								m_sockets[sidx]->state = S_CHOKED;
 								m_sockets[sidx]->lst_choke_time = now;
 
 								WAWO_WARN("[roger] choke socket: #%d:%s, left buffer: %u", socket->GetFd(), socket->GetRemoteAddr().AddressInfo().CStr(), leftbuffersize );
 								continue;
+							}
+
+							if (leftbuffersize == 0) {
+								u32_t choke_size = (m_sockets[sidx]->choke_buffer_size + 1024);
+								m_sockets[sidx]->choke_buffer_size = WAWO_MIN(choke_size, MaxChokeSize);
 							}
 						}
 #endif
@@ -178,14 +187,15 @@ namespace wawo { namespace net { namespace peer {
 							socket->Close(dosndrt);
 						}
 					}
-				} while (idx<m_sockets_count[t]);
+
+				} while ( (idx<m_sockets_count[t]) );
 
 				return dosndrt;
 			}
 
 			void Add(WWRP<Socket> const& socket) {
 				WAWO_ASSERT(socket != NULL);
-				//WAWO_ASSERT(state == S_JOINED || state == S_HANGING );
+
 				LockGuard<SharedMutex> lg(m_mutex);
 				for (int i = 0; i < SOCKETS_LIMIT; i++) {
 					if ( (m_sockets[i] != NULL ) && socket == m_sockets[i]->socket ) {
@@ -202,6 +212,7 @@ namespace wawo { namespace net { namespace peer {
 						m_sockets[i]->lst_left_snd_buffer_size = 0;
 						m_sockets[i]->type = T_HANGING;
 						m_sockets[i]->state = S_UNCHOKED;
+						m_sockets[i]->choke_buffer_size = InitChokeSize;
 						++m_sockets_count[T_HANGING];
 						return;
 					}
@@ -209,7 +220,6 @@ namespace wawo { namespace net { namespace peer {
 
 				WAWO_WARN("[socket pool] no available slot, close socket");
 				socket->Close(-777);
-				//WAWO_THROW_EXCEPTION("[socket pool] no available slot");
 			}
 
 			void Remove(WWRP<Socket> const& socket) {
