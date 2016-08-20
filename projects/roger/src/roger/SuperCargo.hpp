@@ -14,8 +14,8 @@ namespace wawo { namespace net { namespace peer {
 	namespace super_cargo {
 
 		const static u32_t SegmentDataSize = (1400 - (12 + 20)); //mss - segment_header - lowwer pakcet header
-		const static u16_t InitChokeSize = 8*1024;
-		const static u16_t MaxChokeSize = 32*1024;
+		const static u32_t InitChokeSize = 16*1024;
+		const static u32_t MaxChokeSize = 32*1024;
 
 		typedef u32_t SuperCargoIdT;
 
@@ -79,7 +79,7 @@ namespace wawo { namespace net { namespace peer {
 				u32_t lst_left_snd_buffer_size;
 				u8_t type;
 				u8_t state;
-				u16_t choke_buffer_size;
+				u32_t choke_buffer_size;
 			};
 
 			SharedMutex m_mutex;
@@ -168,10 +168,10 @@ namespace wawo { namespace net { namespace peer {
 								continue;
 							}
 
-							if (leftbuffersize == 0) {
-								u32_t choke_size = (m_sockets[sidx]->choke_buffer_size + 1024);
-								m_sockets[sidx]->choke_buffer_size = WAWO_MIN(choke_size, MaxChokeSize);
-							}
+							//if (leftbuffersize == 0) {
+							//	u32_t choke_size = (m_sockets[sidx]->choke_buffer_size + 1024);
+							//	m_sockets[sidx]->choke_buffer_size = WAWO_MIN(choke_size, MaxChokeSize);
+							//}
 						}
 #endif
 
