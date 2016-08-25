@@ -161,8 +161,11 @@ namespace wawo { namespace net { namespace peer {
 								}
 
 								if (m_sockets[sidx]->lst_left_snd_buffer_size < leftbuffersize) {
-									WAWO_THROW_EXCEPTION("what!!! logic issue for choke");
+									char tmp[256] = { 0 };
+									snprintf(tmp, sizeof(tmp) / sizeof(tmp[0]), "skp logic issue: lst_left: %u, left: %u", m_sockets[sidx]->lst_left_snd_buffer_size, leftbuffersize );
+									WAWO_THROW_EXCEPTION(tmp);
 								}
+
 								if (last_snd<(m_sockets[sidx]->lst_left_snd_buffer_size>>1)) {
 									m_sockets[sidx]->lst_left_snd_buffer_size = leftbuffersize;
 									continue;
@@ -876,7 +879,7 @@ namespace wawo { namespace net { namespace peer {
 							if ((m_arq_timer == 0)) {
 								m_arq_timer = now ;
 							} else {
-								if ((now - m_arq_timer) > 1500) {
+								if ((now - m_arq_timer) > 1000) {
 									m_arq_timer = 0;
 
 									for (u32_t i = m_rs.next; i < segment->header.seq;i++) {
