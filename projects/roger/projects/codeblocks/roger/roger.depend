@@ -1217,11 +1217,11 @@
 1471336102 /home/copy/roger/projects/roger/src/roger/StreamPacket.hpp
 	<wawo/algorithm/Packet.hpp>
 
-1471434105 source:/home/copy/roger/roger/projects/roger/src/roger/server.cpp
+1472025628 source:/home/copy/roger/roger/projects/roger/src/roger/server.cpp
 	<vld.h>
 	"shared.hpp"
 
-1471662258 /home/copy/roger/roger/projects/roger/src/roger/shared.hpp
+1472096571 /home/copy/roger/roger/projects/roger/src/roger/shared.hpp
 	<wawo.h>
 	"SuperCargo.hpp"
 
@@ -1290,14 +1290,14 @@
 
 1471434271 /home/copy/roger/roger/libs/wawo/include/wawo/config/config.h
 
-1471590189 /home/copy/roger/roger/libs/wawo/include/wawo/constants.h
+1472105729 /home/copy/roger/roger/libs/wawo/include/wawo/constants.h
 	<wawo/config/compiler.h>
 	<limits.h>
 
 1471434271 /home/copy/roger/roger/libs/wawo/include/wawo/memory/memory.h
 	<cstdlib>
 
-1471434271 /home/copy/roger/roger/libs/wawo/include/wawo/basic.hpp
+1472105377 /home/copy/roger/roger/libs/wawo/include/wawo/basic.hpp
 	<chrono>
 	<thread>
 	<wawo/config/platform.h>
@@ -1356,18 +1356,18 @@
 	<condition_variable>
 	<wawo/core.h>
 
-1471434271 /home/copy/roger/roger/libs/wawo/include/wawo/log/LoggerManager.h
+1471849196 /home/copy/roger/roger/libs/wawo/include/wawo/log/LoggerManager.h
 	<vector>
 	<wawo/Singleton.hpp>
 	<wawo/SmartPtr.hpp>
 	<wawo/log/Logger_Abstract.hpp>
 
-1471434271 /home/copy/roger/roger/libs/wawo/include/wawo/log/Logger_Abstract.hpp
+1471849182 /home/copy/roger/roger/libs/wawo/include/wawo/log/Logger_Abstract.hpp
 	<wawo/core.h>
 	<wawo/SmartPtr.hpp>
 	<wawo/log/FormatInterface.h>
 
-1471434271 /home/copy/roger/roger/libs/wawo/include/wawo/log/FormatInterface.h
+1471849086 /home/copy/roger/roger/libs/wawo/include/wawo/log/FormatInterface.h
 	<stdarg.h>
 
 1471434271 /home/copy/roger/roger/libs/wawo/include/wawo/thread/Tls.hpp
@@ -1376,14 +1376,14 @@
 	<mutex>
 	<wawo/Singleton.hpp>
 
-1471434271 /home/copy/roger/roger/libs/wawo/include/wawo/log/ConsoleLogger.h
+1471849143 /home/copy/roger/roger/libs/wawo/include/wawo/log/ConsoleLogger.h
 	<wawo/log/Logger_Abstract.hpp>
 
-1471434271 /home/copy/roger/roger/libs/wawo/include/wawo/log/FileLogger.h
+1471849165 /home/copy/roger/roger/libs/wawo/include/wawo/log/FileLogger.h
 	<wawo/log/Logger_Abstract.hpp>
 	<string>
 
-1471434271 /home/copy/roger/roger/libs/wawo/include/wawo/log/SysLogger.h
+1471849220 /home/copy/roger/roger/libs/wawo/include/wawo/log/SysLogger.h
 	<wawo/log/Logger_Abstract.hpp>
 
 1471434271 /home/copy/roger/roger/libs/wawo/include/wawo/task/TaskManager.hpp
@@ -1404,7 +1404,7 @@
 	<wawo/thread/Condition.hpp>
 	<wawo/task/TaskRunner.hpp>
 
-1471434271 /home/copy/roger/roger/libs/wawo/include/wawo/task/TaskRunner.hpp
+1471832750 /home/copy/roger/roger/libs/wawo/include/wawo/task/TaskRunner.hpp
 	<wawo/core.h>
 	<wawo/SmartPtr.hpp>
 	<wawo/thread/Mutex.hpp>
@@ -1481,7 +1481,7 @@
 	<wawo/core.h>
 	<wawo/algorithm/Packet.hpp>
 
-1471598402 /home/copy/roger/roger/libs/wawo/include/wawo/net/Socket.hpp
+1472105305 /home/copy/roger/roger/libs/wawo/include/wawo/net/Socket.hpp
 	<wawo/core.h>
 	<wawo/SmartPtr.hpp>
 	<wawo/time/time.hpp>
@@ -1577,7 +1577,7 @@
 1471434271 /home/copy/roger/roger/libs/wawo/include/wawo/net/ServicePool.hpp
 	<wawo/thread/Mutex.hpp>
 
-1471663247 /home/copy/roger/roger/libs/wawo/include/wawo/net/PeerProxy.hpp
+1472105293 /home/copy/roger/roger/libs/wawo/include/wawo/net/PeerProxy.hpp
 	<map>
 	<wawo/core.h>
 	<wawo/net/NetEvent.hpp>
@@ -1656,7 +1656,7 @@
 	<wawo/thread/Mutex.hpp>
 	<wawo/thread/Thread.hpp>
 
-1471682829 /home/copy/roger/roger/projects/roger/src/roger/SuperCargo.hpp
+1472105862 /home/copy/roger/roger/projects/roger/src/roger/SuperCargo.hpp
 	<atomic>
 	<vector>
 	<list>

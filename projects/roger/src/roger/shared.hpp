@@ -10,7 +10,6 @@ namespace roger {
 	using namespace wawo;
 	using namespace wawo::algorithm;
 	using namespace wawo::net::peer;
-	using namespace wawo::net::core;
 	using namespace wawo::net;
 
 	int GetLocalIp( char* addr, u32_t size ) {
@@ -80,7 +79,9 @@ namespace roger {
 		S5C_BIND		= 0x02,
 		S5C_UDP			= 0x03
 	};
+
 	const int ENCRYPT_BUFFER_CFG = wawo::net::SBCT_MEDIUM_UPPER;
+	const wawo::net::SockBufferConfig sbc = { 128*1024,128*1024 };
 }
 
 #define EP_SEND_PACKET(retval,rep,cpeer_id,packet) \

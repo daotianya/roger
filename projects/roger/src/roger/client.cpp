@@ -11,7 +11,6 @@
 #endif
 
 #include "shared.hpp"
-//ioctl() SIOCOUTQ TIOCOUTQ
 
 namespace roger {
 
@@ -50,12 +49,19 @@ namespace roger {
 
 			std::vector<wawo::Len_CStr> host_and_port;
 			wawo::split( host,":",host_and_port );
+
+			if (host_and_port.size() != 2) {
+				WAWO_FATAL("[HttpServer] invalid http request");
+				peer->Close();
+				return;
+			}
+
 			WAWO_ASSERT(host_and_port.size() == 2);
 
 			int http_addr_pos = wawo::strpos(m_pac.CStr(), "ROGER_HTTP_SERVER_ADDR");
 			
 			if (http_addr_pos == -1) {
-				WAWO_FATAL("[HttpServer] invalid proxy.pac file");
+				WAWO_FATAL("[HttpServer] invalid local proxy.pac file");
 				peer->Close();
 				return;
 			}
@@ -159,8 +165,8 @@ namespace roger {
 			return wawo::OK;
 		}
 
-		int _ConnectOneSocket( WWRP<RogerEncryptedPeer> const& ep, super_cargo::PoolType const& t ) {
-			WWRP<Socket> bsocket(new Socket(m_saddr, GetBufferConfig(ENCRYPT_BUFFER_CFG), F_AF_INET, ST_STREAM, P_TCP));
+		int _ConnectOneSocket(WWRP<RogerEncryptedPeer> const& ep, super_cargo::PoolType const& t) {
+			WWRP<Socket> bsocket(new Socket(m_saddr, roger::sbc, F_AF_INET, ST_STREAM, P_TCP));
 
 			int connrt = RogerEncryptedNode::Connect(ep, bsocket);
 			if (connrt != wawo::OK) {
@@ -172,6 +178,15 @@ namespace roger {
 				ep->Close();
 				return tndrt;
 			}
+
+			u8_t tos = IPTOS_LOWDELAY | IPTOS_THROUGHPUT;
+			int settosrt = bsocket->SetTOS(tos);
+			if (settosrt != wawo::OK)
+			{
+				ep->Close();
+				return settosrt;
+			}
+
 			ep->AttachSocket(bsocket);
 
 			int joinrt = ep->Socket_SndJoin(bsocket,t);
@@ -342,7 +357,7 @@ namespace roger {
 
 			do {
 				connrt = _ConnectOneSocket(evt->GetPeer(), t);
-				if (connrt == wawo::OK) {
+				if (connrt == wawo::OK || connrt==E_SUPER_CARGO_PEER_JSP_FAILED ) {
 					break;
 				}
 				end = wawo::time::curr_seconds();
@@ -567,7 +582,6 @@ int main(int argc, char** argv) {
 		node->Stop();
 		return sp_rt;
 	}
-
 	
 	FILE* fp = fopen("proxy.pac", "rb");
 	//long begin = ftell(fp);

@@ -143,7 +143,7 @@ namespace roger {
 				return srt;
 			}
 
-			int lrt = RogerEncryptedNode::StartListen(m_listenaddr, GetBufferConfig(ENCRYPT_BUFFER_CFG));
+			int lrt = RogerEncryptedNode::StartListen(m_listenaddr, roger::sbc );
 			if( lrt != wawo::OK ) {
 				RogerEncryptedNode::Stop();
 				HttpServerNode::Stop();
@@ -416,9 +416,6 @@ namespace roger {
 				return;
 			}
 
-			//EpCtx* epctx = (EpCtx*)evt->GetPeer()->GetContext<EpCtx>();
-			//WAWO_ASSERT(epctx != NULL);
-
 			WAWO_ASSERT(evt->GetIncoming() != NULL);
 			WWSP<Packet> const& inpack = evt->GetIncoming()->GetPacket();
 
@@ -456,13 +453,12 @@ namespace roger {
 
 			EpCtx* ctx = evt->GetPeer()->GetContext<EpCtx>();
 			WAWO_ASSERT(ctx == NULL);
-
-			wawo::thread::LockGuard<wawo::thread::SpinMutex> lg_reps(m_reps_mutex);
-			m_reps.push_back(evt->GetPeer());
 			ctx = new EpCtx();
 			evt->GetPeer()->SetContext<EpCtx>(ctx);
+			wawo::thread::LockGuard<wawo::thread::SpinMutex> lg_reps(m_reps_mutex);
+			m_reps.push_back(evt->GetPeer());
 
-			WAWO_INFO("roger[###%d]rep connected", evt->GetPeer()->GetId());
+			WAWO_INFO("roger[###%u]rep connected", evt->GetPeer()->GetId());
 			RogerEncryptedNode::NodeAbstractT::OnPeerConnected(evt);
 		}
 
@@ -479,13 +475,13 @@ namespace roger {
 			WAWO_ASSERT(it != m_reps.end());
 			m_reps.erase(it);
 
-			WAWO_INFO("roger[###%d]rep closed", evt->GetPeer()->GetId());
+			WAWO_INFO("roger[###%u]rep closed", evt->GetPeer()->GetId());
 			RogerEncryptedNode::NodeAbstractT::OnPeerClose(evt);
 		}
 
 		void HandleClientConnected( WWRP<RogerEncryptedPeer> const& rep, ClientPeerIdT const& cpeer_id ) {
 
-			EpCtx* epctx = (EpCtx*) rep->GetContext<EpCtx>();
+			EpCtx* epctx = (EpCtx*)rep->GetContext<EpCtx>();
 			WAWO_ASSERT( epctx != NULL );
 			WAWO_ASSERT( cpeer_id != 0 );
 

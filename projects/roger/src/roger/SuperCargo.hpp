@@ -13,6 +13,20 @@ namespace wawo { namespace net { namespace peer {
 
 	namespace super_cargo {
 
+		enum Error {
+			E_SUPER_CARGO_PEER_JSP_FAILED = -44000,
+			E_SUPER_CARGO_PEER_SOCKET_NOT_ATTACHED = -44001,
+			E_SUPER_CARGO_STREAM_NOT_FOUND = -44002,
+			E_SUPER_CARGO_STREAM_SYN_FAILED = -44003,
+			E_SUPER_CARGO_STREAM_SYN_INVALID_ACK = -44004,
+			E_SUPER_CARGO_STREAM_INVALID_STATE = -44005,
+			E_SUPER_CARGO_STREAM_READ_ALREADY_CLOSED = -44006,
+			E_SUPER_CARGO_STREAM_WRITE_ALREADY_CLOSED = -44007,
+			E_SUPER_CARGO_STREAM_ALREADY_CLOSED = -44008,
+			E_SUPER_CARGO_STREAM_FIN_IN_BUFFER = -44009,
+			E_SUPER_CARGO_NO_SOCKETS_TO_SND = -44010
+		};
+
 		const static u32_t SegmentDataSize = (1400 - (12 + 20)); //mss - segment_header - lowwer pakcet header
 		const static u32_t MinChokeSize = 12*1024;
 		const static u32_t MaxChokeSize = 32*1024;
@@ -110,7 +124,7 @@ namespace wawo { namespace net { namespace peer {
 				}
 
 				u8_t idx = 0;
-				int dosndrt = wawo::E_SUPER_CARGO_NO_SOCKETS_TO_SND;
+				int dosndrt = E_SUPER_CARGO_NO_SOCKETS_TO_SND;
 
 				do {
 					u8_t sidx = wawo::atomic_increment(&m_last_sidx[t]) % SOCKETS_LIMIT;
@@ -488,8 +502,8 @@ namespace wawo { namespace net { namespace peer {
 				m_need_notify = true;
 				m_cond.wait<SpinMutex>(m_mutex);
 
-				if (m_rs.segments.size() == 0) {
-					return wawo::E_SUPER_CARGO_STREAM_SYN_FAILED;
+				if ( (m_rs.segments.size() == 0) || m_state == SS_ERROR) {
+					return E_SUPER_CARGO_STREAM_SYN_FAILED;
 				}
 				WAWO_ASSERT(SS_SYN_SENT == m_state);
 
@@ -506,7 +520,7 @@ namespace wawo { namespace net { namespace peer {
 					return wawo::OK;
 				}
 
-				return wawo::E_SUPER_CARGO_STREAM_SYN_INVALID_ACK;
+				return E_SUPER_CARGO_STREAM_SYN_INVALID_ACK;
 			}
 
 			int _SndSyn(WWRP<SuperCargoT> const& supercargo, u32_t const& cookie) {
@@ -559,7 +573,7 @@ namespace wawo { namespace net { namespace peer {
 				LockGuard<SpinMutex> lg(m_mutex);
 
 				if (m_iocflag&STREAM_WRITE) {
-					return wawo::E_SUPER_CARGO_STREAM_WRITE_ALREADY_CLOSED;
+					return E_SUPER_CARGO_STREAM_WRITE_ALREADY_CLOSED;
 				}
 
 				if (packet->Length() <= SegmentDataSize) {
@@ -619,7 +633,7 @@ namespace wawo { namespace net { namespace peer {
 
 			int _SndFin() {
 				if (m_iocflag&STREAM_WRITE) {
-					return wawo::E_SUPER_CARGO_STREAM_WRITE_ALREADY_CLOSED;
+					return E_SUPER_CARGO_STREAM_WRITE_ALREADY_CLOSED;
 				}
 
 				WWSP<Segment> synseg(new Segment());
@@ -639,7 +653,7 @@ namespace wawo { namespace net { namespace peer {
 			int CloseRead() {
 				LockGuard<SpinMutex> lg(m_mutex);
 				if (m_iocflag&STREAM_READ) {
-					return wawo::E_SUPER_CARGO_STREAM_READ_ALREADY_CLOSED;
+					return E_SUPER_CARGO_STREAM_READ_ALREADY_CLOSED;
 				}
 				m_iocflag |= STREAM_READ;
 				return wawo::OK;
@@ -648,7 +662,7 @@ namespace wawo { namespace net { namespace peer {
 			int CloseWrite() {
 				LockGuard<SpinMutex> lg(m_mutex);
 				if (m_iocflag&STREAM_WRITE) {
-					return wawo::E_SUPER_CARGO_STREAM_WRITE_ALREADY_CLOSED;
+					return E_SUPER_CARGO_STREAM_WRITE_ALREADY_CLOSED;
 				}
 				int rt = _SndFin();
 				WAWO_ASSERT(rt == wawo::OK);
@@ -660,7 +674,7 @@ namespace wawo { namespace net { namespace peer {
 			int Close() {
 				LockGuard<SpinMutex> lg(m_mutex);
 				if (m_iocflag == (STREAM_READ | STREAM_WRITE)) {
-					return wawo::E_SUPER_CARGO_STREAM_ALREADY_CLOSED;
+					return E_SUPER_CARGO_STREAM_ALREADY_CLOSED;
 				}
 
 				if (!(m_iocflag&STREAM_WRITE)) {
@@ -1067,7 +1081,7 @@ namespace wawo { namespace net { namespace peer {
 
 			LockGuard<SharedMutex> lg(m_mutex);
 			if( !m_skp->HaveSocket(socket) ) {
-				return wawo::E_SUPER_CARGO_PEER_SOCKET_NOT_ATTACHED;
+				return E_SUPER_CARGO_PEER_SOCKET_NOT_ATTACHED;
 			}
 
 			WAWO_ASSERT( socket->IsActive() );
@@ -1103,8 +1117,8 @@ namespace wawo { namespace net { namespace peer {
 			SP_SEGMENT_FROM_PACKET(join_ackseg, arrives[0]);
 
 			if (!SP_TEST_SEGFLAG(join_ackseg, super_cargo::F_PEER_JIS )) {
-				socket->Close(wawo::E_SUPER_CARGO_PEER_JSP_FAILED);
-				return wawo::E_SUPER_CARGO_PEER_JSP_FAILED;
+				socket->Close(E_SUPER_CARGO_PEER_JSP_FAILED);
+				return E_SUPER_CARGO_PEER_JSP_FAILED;
 			}
 
 			SuperCargoIdT ack_supid = join_ackseg.data->Read<SuperCargoIdT>();
@@ -1151,7 +1165,7 @@ namespace wawo { namespace net { namespace peer {
 			typename StreamMap::iterator it = m_stream_map.find(stream_id);
 			if (it == m_stream_map.end()) {
 				WAWO_WARN("[super_cargo] stream not found: %u", stream_id);
-				return wawo::E_SUPER_CARGO_STREAM_NOT_FOUND;
+				return E_SUPER_CARGO_STREAM_NOT_FOUND;
 			}
 			return it->second->Close();
 		}
@@ -1162,7 +1176,7 @@ namespace wawo { namespace net { namespace peer {
 
 			if (it == m_stream_map.end()) {
 				WAWO_WARN("[super_cargo] stream not found: %u", stream_id);
-				return wawo::E_SUPER_CARGO_STREAM_NOT_FOUND;
+				return E_SUPER_CARGO_STREAM_NOT_FOUND;
 			}
 
 			return it->second->CloseRead();
@@ -1173,7 +1187,7 @@ namespace wawo { namespace net { namespace peer {
 			typename StreamMap::iterator it = m_stream_map.find(stream_id);
 			if (it == m_stream_map.end()) {
 				WAWO_WARN("[super_cargo] stream not found: %u", stream_id);
-				return wawo::E_SUPER_CARGO_STREAM_NOT_FOUND;
+				return E_SUPER_CARGO_STREAM_NOT_FOUND;
 			}
 			return it->second->CloseWrite();
 		}
@@ -1205,6 +1219,7 @@ namespace wawo { namespace net { namespace peer {
 			WAWO_ASSERT(socket != NULL);
 
 			WWRP<ListenerT> peer_l(this);
+			socket->Register(SE_CONNECTED, peer_l);
 			socket->Register(SE_PACKET_ARRIVE, peer_l);
 			socket->Register(SE_RD_SHUTDOWN, peer_l);
 			socket->Register(SE_WR_SHUTDOWN, peer_l);
@@ -1262,7 +1277,7 @@ namespace wawo { namespace net { namespace peer {
 			LockGuard<SharedMutex> lgmap(m_stream_map_mutex);
 			typename StreamMap::iterator it = m_stream_map.find(message->GetStreamId());
 			if (it == m_stream_map.end()) {
-				return wawo::E_SUPER_CARGO_STREAM_NOT_FOUND;
+				return E_SUPER_CARGO_STREAM_NOT_FOUND;
 			}
 
 			WWSP<Packet> packet_mo;
@@ -1280,13 +1295,21 @@ namespace wawo { namespace net { namespace peer {
 
 			case SE_CONNECTED:
 				{
+					u8_t tos = IPTOS_LOWDELAY | IPTOS_THROUGHPUT;
+					int settosrt = evt->GetSocket()->SetTOS(tos);
+					if (settosrt != wawo::OK)
+					{
+						evt->GetSocket()->Close(settosrt);
+						WAWO_WARN("[super_cargo] set tos failed: %d", settosrt);
+						return ;
+					}
+
 					int tnrt = evt->GetSocket()->TurnOnNoDelay();
 					if (tnrt != wawo::OK) {
-						evt->GetSocket()->Close();
+						evt->GetSocket()->Close(tnrt);
 						WAWO_WARN("[super_cargo] turn on no delay failed: %d", tnrt );
 						return;
 					}
-
 
 					wawo::net::KeepAliveVals vals;
 					vals.onoff = 1;
@@ -1498,9 +1521,7 @@ namespace wawo { namespace net { namespace peer {
 						}
 
 						int ack_resprt = evt->GetSocket()->SendPacket(ack_pack);
-						WAWO_ASSERT(ack_resprt == wawo::OK);
 						(void) ack_resprt;
-
 						if ( (ack_resprt == wawo::OK) && SuperCargo != NULL ) {
 							WAWO_ASSERT(SuperCargo != NULL);
 							SuperCargo->UpdateSocketState(evt->GetSocket(), t );
