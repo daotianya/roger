@@ -160,12 +160,6 @@ namespace wawo { namespace net { namespace peer {
 									continue;
 								}
 
-								//if (m_sockets[sidx]->lst_left_snd_buffer_size < leftbuffersize) {
-								//	char tmp[256] = { 0 };
-								//	snprintf(tmp, sizeof(tmp) / sizeof(tmp[0]), "skp logic issue: lst_left: %u, left: %u", m_sockets[sidx]->lst_left_snd_buffer_size, leftbuffersize );
-								//	WAWO_THROW_EXCEPTION(tmp);
-								//}
-
 								if (last_snd<(m_sockets[sidx]->lst_left_snd_buffer_size>>1)) {
 									m_sockets[sidx]->lst_left_snd_buffer_size = leftbuffersize;
 									continue;

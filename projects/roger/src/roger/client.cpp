@@ -553,6 +553,7 @@ namespace roger {
 
 int main(int argc, char** argv) {
 
+
 	WAWO_WARN("[roger]server start...");
 	if (argc != 3) {
 		WAWO_FATAL("[roger] invalid parameter, usage: roger ip port");
@@ -619,7 +620,8 @@ int main(int argc, char** argv) {
 		httpServer->Stop();
 		return listenrt;
 	}
-	
+
+
 	WAWO_INFO("[roger] service ready !!!");
 	app.RunUntil();
 	node->Stop();
